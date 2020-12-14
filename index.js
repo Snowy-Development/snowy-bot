@@ -14,8 +14,9 @@ for (const file of commandFiles) {
 
 const cooldowns = new Discord.Collection();
 
-client.once('ready', () => {
-	console.log('Ready!');
+client.once('ready', client => {
+	console.log(`Logged in as ${client.user.tag}`);
+	client.user.setPresence({ activity: { name: 'Snowsgiving', type: "STREAMING", url: "https://twitch.tv/discord" }, status: 'online' })
 });
 
 client.on('message', message => {
